@@ -1,3 +1,4 @@
+import { config } from 'dotenv'
 import { createClient } from '@libsql/client'
 import { drizzle } from 'drizzle-orm/libsql'
 config({ path: '.env' })
