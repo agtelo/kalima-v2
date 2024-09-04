@@ -1,5 +1,5 @@
 import { db } from '@/libs/DB'
-import { productSchema } from '@/models/Schema'
+import { productSchema } from '@/models/ProductsSchema'
 
 export async function GET(request) {
 	try {
