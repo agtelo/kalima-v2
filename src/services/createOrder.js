@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:3000' // Move outside the function
+const baseURL = process.env.DATABASE_URL
 
 const createOrder = async order => {
 	try {
