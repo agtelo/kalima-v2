@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
-import { ProductById } from '@/services/productById'
+import productById from '@/services/productById'
 import Spinner from '../Spinner'
 import useCartStore from '@/store/useCartStore'
 import Counter from '../Counter'
@@ -17,7 +17,7 @@ export default function DetailCard() {
 	const { id } = useParams()
 	const { data, error, isLoading } = useQuery({
 		queryKey: ['productDetail', id],
-		queryFn: () => ProductById(id),
+		queryFn: () => productById(id),
 	})
 
 	const handleAddToCart = () => {
