@@ -1,8 +1,7 @@
 import axios from 'axios'
 
-const baseURL = process.env.DATABASE_URL
-
 const createOrder = async order => {
+	const baseURL = process.env.DATABASE_URL || 'http://localhost:3000'
 	try {
 		const response = await axios.post(`${baseURL}/api/create-order`, order, {
 			headers: {

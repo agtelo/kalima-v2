@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export async function ProductByCategory(category) {
-	const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+	const baseURL = process.env.DATABASE_URL || 'http://localhost:3000'
 	try {
 		const res = await axios.get(`${baseURL}/api/products/category/${category}`)
 		return res.data
