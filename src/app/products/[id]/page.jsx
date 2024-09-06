@@ -1,8 +1,17 @@
 'use client'
 import productById from '@/services/productById'
 import { dehydrate, HydrationBoundary, QueryClient, useQuery } from '@tanstack/react-query'
-import DetailCard from '@/components/products/DetailCard'
-import RelatedProductsContainer from '@/components/products/RelatedProductsContainer' // Paso 1
+import dynamic from 'next/dynamic'
+
+const DetailCard = dynamic(() => import('@/components/products/DetailCard'), {
+	loading: () => <div>Loading...</div>,
+})
+const RelatedProductsContainer = dynamic(
+	() => import('@/components/products/RelatedProductsContainer'),
+	{
+		loading: () => <div>Loading...</div>,
+	},
+)
 
 export default function ProductDetailPage({ params }) {
 	const { id } = params

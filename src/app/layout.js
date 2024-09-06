@@ -5,9 +5,6 @@ import { Toaster } from '@/components/ui/sonner'
 import Providers from '@/providers/Providers'
 import Navbar from '@/components/Nabvar'
 import Footer from '@/components/Footer'
-require('dotenv').config()
-import { SpeedInsights } from '@vercel/speed-insights/next'
-
 const source = Source_Sans_3({ subsets: ['latin'] })
 
 export const metadata = {

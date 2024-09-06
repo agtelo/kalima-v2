@@ -1,20 +1,20 @@
 'use client'
 import { useQuery } from '@tanstack/react-query'
-import ProductCard from '@/components/products/ProductCard'
+import dynamic from 'next/dynamic'
 import { ProductByCategory } from '@/services/productByCategory'
 import Spinner from '../Spinner'
 
+// Lazy load ProductCard component with a loading spinner
+const ProductCard = dynamic(() => import('@/components/products/ProductCard'))
+
 function RelatedProductsContainer({ categoryId }) {
-	// Asegúrate de que la clave de consulta coincida con la usada en la precarga
-	const { data, error, isLoading } = useQuery({
-		queryKey: ['productByCategory', categoryId], // Cambiado a 'productByCategory' para coincidir
+	const { data, error } = useQuery({
+		queryKey: ['productByCategory', categoryId],
 		queryFn: () => ProductByCategory(categoryId),
 	})
 
-	if (isLoading) return <Spinner />
 	if (error) return <div>{error.message}</div>
-	if (!data || data.length === 0)
-		return <div>No hay productos relacionados para esta categoría.</div>
+	if (!data || data.length === 0) return
 
 	return (
 		<section className='flex flex-wrap justify-center py-28'>

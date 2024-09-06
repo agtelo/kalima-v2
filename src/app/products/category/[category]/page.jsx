@@ -1,9 +1,17 @@
 import React from 'react'
 import { QueryClient, dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { ProductByCategory } from '@/services/productByCategory'
-import ProductContainer from '@/components/products/ProductContainer'
 import Image from 'next/image'
-import CategoriesTidesRelated from '@/components/CategoriesTidesRelated'
+import dynamic from 'next/dynamic'
+import Spinner from '@/components/Spinner'
+
+// Lazy load ProductContainer and CategoriesTidesRelated components
+const ProductContainer = dynamic(() => import('@/components/products/ProductContainer'), {
+	loading: () => <Spinner />,
+})
+const CategoriesTidesRelated = dynamic(() => import('@/components/CategoriesTidesRelated'), {
+	loading: () => <Spinner />,
+})
 
 export default async function CategoryPage({ params }) {
 	const images = [

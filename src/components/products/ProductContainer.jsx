@@ -1,18 +1,21 @@
 'use client'
 import { useQuery } from '@tanstack/react-query'
-import ProductCard from '@/components/products/ProductCard'
+import dynamic from 'next/dynamic'
 import { ProductByCategory } from '@/services/productByCategory'
 import Spinner from '../Spinner'
 
-export default function ProductContainer({ category }) {
-	const { data, error, isLoading } = useQuery({
-		queryKey: ['featuredProducts'],
-		queryFn: () => ProductByCategory(category),
-	})
+// Lazy load ProductCard component with a loading spinner
+const ProductCard = dynamic(() => import('@/components/products/ProductCard'))
 
+export default function ProductContainer({ category, initialData }) {
+	const { data, error, isLoading } = useQuery({
+		queryKey: ['featuredProducts', category],
+		queryFn: () => ProductByCategory(category),
+		initialData,
+	})
 	if (isLoading) return <Spinner />
 	if (error) return <div>{error.message}</div>
-	if (!data || data.length === 0) return <div>No products available for this category.</div>
+	if (!data || data.length === 0) return
 
 	return (
 		<>
