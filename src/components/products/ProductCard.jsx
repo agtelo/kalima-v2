@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
 
 	return (
 		<Card
-			className='flex flex-col items-center justify-between border-none shadow-none md:basis-1/2 lg:basis-1/3 xl:basis-1/4 animate__animated animate__fadeIn animate__delay-1s'
+			className='flex flex-col items-center justify-between border-none shadow-none md:basis-1/2 lg:basis-1/3 xl:basis-1/4 animate__animated animate__fadeIn'
 			onClick={handleClick}
 		>
 			<Image

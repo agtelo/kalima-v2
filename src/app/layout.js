@@ -6,6 +6,7 @@ import Providers from '@/providers/Providers'
 import Navbar from '@/components/Nabvar'
 import Footer from '@/components/Footer'
 const source = Source_Sans_3({ subsets: ['latin'] })
+import { esMX } from '@clerk/localizations'
 
 export const metadata = {
 	title: 'Kalima',
@@ -14,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<ClerkProvider>
+		<ClerkProvider localization={esMX}>
 			<html lang='en'>
 				<body className={`${source.className} antialiased h-screen `}>
 					<Navbar />

@@ -65,7 +65,7 @@ export default function Navbar() {
 						</DropdownMenuContent>
 					</DropdownMenu>
 				</nav>
-				<Link href='/' className='flex items-center gap-2 lg:ms-24' prefetch={false}>
+				<Link href='/' className='flex items-center gap-2 lg:ms-20' prefetch={false}>
 					<BrandLogo />
 				</Link>
 				<nav className='flex items-center'>
