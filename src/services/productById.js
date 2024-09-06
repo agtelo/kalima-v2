@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-// Exportación por Defecto
 export default async function productById(id) {
 	const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 	try {
