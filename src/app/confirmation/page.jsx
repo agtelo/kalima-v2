@@ -64,7 +64,7 @@ export default function Page() {
 						</div>
 					</div>
 				</div>
-				<Button className='mt-6 ' variant='link' onClick={handleClick}>
+				<Button className='mt-6 rounded-none' variant='link' onClick={handleClick}>
 					Volver a la Tienda
 				</Button>
 			</div>

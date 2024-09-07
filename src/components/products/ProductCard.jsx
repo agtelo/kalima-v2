@@ -8,6 +8,7 @@ import Image from 'next/image'
 // import { toast } from 'sonner'
 import 'animate.css'
 import { useRouter } from 'next/navigation'
+import { Button } from '../ui/button'
 
 export default function ProductCard({ product }) {
 	// const { addItem } = useCartStore()
@@ -35,12 +36,12 @@ export default function ProductCard({ product }) {
 					className='aspect-[4/3] w-[1200px] object-contain h-auto mb-4'
 				/>
 				<div className='flex justify-center w-full lg:absolute lg:bottom-0 lg:left-0 lg:right-0'>
-					<button
+					<Button
 						onClick={handleClick}
-						className='w-3/4 py-2 text-white transition-opacity duration-300 bg-black rounded-md lg:opacity-0 lg:group-hover:opacity-100'
+						className='w-3/4 py-2 text-white transition-opacity duration-300 bg-black rounded-none lg:opacity-0 lg:group-hover:opacity-100'
 					>
 						Ver detalles
-					</button>
+					</Button>
 				</div>
 			</div>
 			<CardContent className='flex flex-col p-4 mt-4 space-y-2'>

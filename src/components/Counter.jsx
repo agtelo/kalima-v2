@@ -10,12 +10,12 @@ const Counter = ({ quantity, onQuantityChange }) => {
 	return (
 		<div className='flex items-center justify-between'>
 			<div className='flex items-center gap-2'>
-				<Button variant='outline' size='icon' onClick={handleDecrease}>
+				<Button variant='outline' size='icon' onClick={handleDecrease} className='rounded-none'>
 					<MinusIcon className='w-4 h-4' />
 					<span className='sr-only'>Decrement</span>
 				</Button>
 				<div className='text-lg font-medium'>{quantity}</div>
-				<Button variant='outline' size='icon' onClick={handleIncrease}>
+				<Button variant='outline' size='icon' onClick={handleIncrease} className='rounded-none'>
 					<PlusIcon className='w-4 h-4' />
 					<span className='sr-only'>Increment</span>
 				</Button>
