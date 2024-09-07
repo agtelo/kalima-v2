@@ -24,19 +24,26 @@ export default function ProductCard({ product }) {
 	// }
 
 	return (
-		<Card
-			className='flex flex-col items-center justify-between border-none shadow-none md:basis-1/2 lg:basis-1/3 xl:basis-1/4 animate__animated animate__fadeIn'
-			onClick={handleClick}
-		>
-			<Image
-				src={`/assets/images/products/${product.image}`}
-				alt={`${product.model} image`}
-				width='0'
-				height='0'
-				sizes='100vw'
-				className='aspect-[4/3] w-[1200px] rounded-t-lg object-contain h-auto'
-			/>
-			<CardContent className='flex flex-col p-4 space-y-2'>
+		<Card className='relative flex flex-col items-center justify-between border-none shadow-none md:basis-1/2 lg:basis-1/3 xl:basis-1/4 animate__animated animate__fadeIn'>
+			<div className='relative group'>
+				<Image
+					src={`/assets/images/products/${product.image}`}
+					alt={`${product.model} image`}
+					width='0'
+					height='0'
+					sizes='100vw'
+					className='aspect-[4/3] w-[1200px] object-contain h-auto mb-4'
+				/>
+				<div className='flex justify-center w-full lg:absolute lg:bottom-0 lg:left-0 lg:right-0'>
+					<button
+						onClick={handleClick}
+						className='w-3/4 py-2 text-white transition-opacity duration-300 bg-black rounded-md lg:opacity-0 lg:group-hover:opacity-100'
+					>
+						Ver detalles
+					</button>
+				</div>
+			</div>
+			<CardContent className='flex flex-col p-4 mt-4 space-y-2'>
 				<CardTitle className='text-lg font-semibold text-center'>{product.model}</CardTitle>
 				<p className='text-lg font-semibold text-center text-gray-700'>
 					${product.price.toFixed(2)}

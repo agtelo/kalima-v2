@@ -27,7 +27,7 @@ export default function ProductDetailPage({ params }) {
 			<HydrationBoundary state={dehydrate(queryClient)}>
 				<DetailCard />
 			</HydrationBoundary>
-			<h1 className='text-3xl antialiased font-bold uppercase ps-10 text-start'>
+			<h1 className='mt-20 text-3xl antialiased font-bold uppercase md:mt-10 lg:mt-20 ps-10 text-start'>
 				Productos relacionados
 			</h1>
 			<HydrationBoundary state={dehydrate(queryClient)}>

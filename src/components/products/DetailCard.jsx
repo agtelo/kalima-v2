@@ -33,8 +33,8 @@ export default function DetailCard() {
 	if (isLoading) return
 	if (!data || data.length === 0) return <div>No featured products available.</div> //
 	return (
-		<div className='flex flex-col max-w-6xl gap-8 p-20 mx-auto md:flex-row md:px-0'>
-			<div className='flex flex-col gap-4'>
+		<div className='flex flex-col max-w-6xl gap-8 p-4 mx-auto md:flex-row md:p-8 lg:p-20'>
+			<div className='flex flex-col gap-4 md:w-1/2'>
 				<Image
 					src={`/assets/images/products/${data.image}`}
 					alt={data.model}
@@ -44,7 +44,7 @@ export default function DetailCard() {
 					className='object-cover rounded-lg aspect-square'
 				/>
 			</div>
-			<div className='flex flex-col gap-6'>
+			<div className='flex flex-col gap-6 md:w-1/2'>
 				<div className='flex flex-col gap-2'>
 					<h1 className='text-3xl font-bold'>{data.model}</h1>
 					<p className='text-muted-foreground'>{data.description}</p>
@@ -59,7 +59,7 @@ export default function DetailCard() {
 						</Label>
 						<Counter quantity={quantity} onQuantityChange={handleQuantityChange} />
 					</div>
-					<Button size='lg' onClick={handleAddToCart} className='mt-20'>
+					<Button size='lg' onClick={handleAddToCart} className='mt-8 md:mt-12 lg:mt-20'>
 						Agregar al carrito
 					</Button>
 				</div>

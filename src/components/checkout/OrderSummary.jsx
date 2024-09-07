@@ -25,8 +25,8 @@ export default function OrderSummary() {
 						<TableHeader>
 							<TableRow>
 								<TableHead>Producto</TableHead>
-								<TableHead className='flex items-center justify-start'>Cantidad</TableHead>
-								<TableHead className='text-right'>Precio</TableHead>
+								<TableHead className='text-center'>Cantidad</TableHead>
+								<TableHead className='text-center'>Precio</TableHead>
 							</TableRow>
 						</TableHeader>
 						<TableBody>
@@ -46,8 +46,10 @@ export default function OrderSummary() {
 											</div>
 										</div>
 									</TableCell>
-									<TableCell className='flex-col justify-end'>{item.quantity}</TableCell>
-									<TableCell className='text-right'>${item.price.toFixed(2)}</TableCell>
+									<TableCell className='flex-col justify-end text-center'>
+										{item.quantity}
+									</TableCell>
+									<TableCell className='text-center'>${item.price.toFixed(2)}</TableCell>
 								</TableRow>
 							))}
 						</TableBody>

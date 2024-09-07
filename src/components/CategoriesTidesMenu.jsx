@@ -1,16 +1,11 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { AspectRatio } from '@/components/AspectRatio'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-export default function CategoriesTidesMenu() {
-	const [dropdownState, setDropdownState] = useState('closed') // Estado para controlar la visibilidad del dropdown
-	const handleClick = () => {
-		setDropdownState('closed') // Cambia el estado a 'closed' cuando se hace clic en una tarjeta
-	}
+export default function CategoriesTidesMenu({ onCardClick }) {
 	const images = [
 		{
 			id: 1,
@@ -49,13 +44,14 @@ export default function CategoriesTidesMenu() {
 			alt: 'Category 6',
 		},
 	]
+
 	return (
 		<section className='flex flex-wrap'>
 			{images.map(image => (
 				<Card
 					key={image.id}
 					className='w-full border-none basi-1/2 md:basis-1/2 lg:basis-1/3 '
-					onClick={handleClick}
+					onClick={onCardClick}
 				>
 					<AspectRatio ratio={16 / 9}>
 						<Link href={`/products/category/${image.name}`}>

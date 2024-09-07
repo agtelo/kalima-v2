@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { MenuIcon, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import BrandLogo from '@/components/BrandLogo'
@@ -10,16 +10,23 @@ import {
 	DropdownMenuContent,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import CategoriesTides from './CategoriesTides'
+import CategoriesTidesMenu from './CategoriesTidesMenu'
 import useCartStore from '@/store/useCartStore'
-
 import CartMenu from './cart/CartMenu'
 import { SignInButton, SignedIn, SignUpButton, SignedOut, UserButton, useUser } from '@clerk/nextjs'
-import CategoriesTidesMenu from './CategoriesTidesMenu'
 
 export default function Navbar() {
 	const { getTotalQuantity, items } = useCartStore()
 	const { isSignedIn } = useUser()
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+	const handleDropdownClose = () => {
+		setIsDropdownOpen(false)
+	}
+
+	const toggleDropdown = () => {
+		setIsDropdownOpen(prevState => !prevState)
+	}
 
 	return (
 		<>
@@ -52,17 +59,20 @@ export default function Navbar() {
 								variant='primary'
 								className='flex h-20 w-24 items-center border-r-[0.5px] border-primary font-medium antialiased gap-2 rounded-none uppercase decoration-none decoration-none focus:outline-none'
 								size='icon'
+								onClick={toggleDropdown}
 							>
 								<MenuIcon className='size-6' />
 								Menú
 								<span className='sr-only'>Toggle navigation menu</span>
 							</Button>
 						</DropdownMenuTrigger>
-						<DropdownMenuContent className='bg-transparent border-none rounded-none shadow-none'>
-							<div className='border border-none animate__animated animate__slideInDown'>
-								<CategoriesTidesMenu />
-							</div>
-						</DropdownMenuContent>
+						{isDropdownOpen && (
+							<DropdownMenuContent className='bg-transparent border-none rounded-none shadow-none'>
+								<div className='border border-none animate__animated animate__slideInDown'>
+									<CategoriesTidesMenu onCardClick={handleDropdownClose} />
+								</div>
+							</DropdownMenuContent>
+						)}
 					</DropdownMenu>
 				</nav>
 				<Link href='/' className='flex items-center gap-2 lg:ms-20' prefetch={false}>

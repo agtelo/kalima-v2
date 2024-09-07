@@ -8,7 +8,7 @@ import ContactForm from '@/components/checkout/ContactForm'
 export default function Checkout() {
 	return (
 		<div className='flex flex-col w-full min-h-screen overflow-hidden lg:p-20 md:flex-row'>
-			<div className='flex flex-col flex-1 gap-8 p-6 md:p-10'>
+			<div className='flex flex-col flex-1 gap-8 p-6 md:p-2'>
 				<div>
 					<h1 className='text-2xl font-bold'>Checkout</h1>
 					<p className='text-muted-foreground'>

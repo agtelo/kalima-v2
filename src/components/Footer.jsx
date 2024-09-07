@@ -10,7 +10,7 @@ import { ThumbsUp } from 'lucide-react'
 export default function Footer() {
 	return (
 		<footer className='py-10 text-black border-t '>
-			<div className='grid grid-cols-1 gap-8 px-20 mx-auto md:grid-cols-4'>
+			<div className='grid grid-cols-1 gap-8 px-10 mx-auto md:grid-cols-4'>
 				<div className='flex justify-center md:justify-start'>
 					<div className=''>
 						<BrandLogo />

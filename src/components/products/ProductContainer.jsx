@@ -19,7 +19,7 @@ export default function ProductContainer({ category, initialData }) {
 
 	return (
 		<>
-			<section className='flex flex-wrap justify-center py-28 '>
+			<section className='flex flex-wrap justify-center px-10 py-28 '>
 				{data.map(product => (
 					<ProductCard key={product.id} product={product} />
 				))}
