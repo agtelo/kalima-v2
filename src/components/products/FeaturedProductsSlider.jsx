@@ -27,7 +27,7 @@ export default function FeaturedProductsSlider() {
 			<h1 className='pt-10 text-2xl antialiased font-bold uppercase ps-10 text-start'>
 				Productos Destacados
 			</h1>
-			<section className='flex flex-col items-center p-20 my-5'>
+			<section className='flex flex-col items-center p-20 my-5 overflow-hidden'>
 				<Carousel
 					className='flex justify-center max-w-[1620px]  flex-col items-center my-5'
 					opts={{ align: 'start', loop: true }}
@@ -37,18 +37,18 @@ export default function FeaturedProductsSlider() {
 						}),
 					]}
 				>
-					<CarouselContent className='h-auto '>
+					<CarouselContent className='w-full h-auto '>
 						{data.map(product => (
 							<CarouselItem
 								key={product.id}
-								className='basis-1/3 md:basis-1/2 lg:basis-1/5 xl:basis-1/4'
+								className='basis-1/3 md:basis-1/2 lg:basis-1/5 xl:basis-1/3'
 							>
 								<ProductCard product={product} />
 							</CarouselItem>
 						))}
 					</CarouselContent>
-					<CarouselPrevious />
-					<CarouselNext />
+					<CarouselPrevious className='' />
+					<CarouselNext className='' />
 				</Carousel>
 			</section>
 		</>
