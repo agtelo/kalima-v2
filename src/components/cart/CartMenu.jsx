@@ -40,7 +40,10 @@ export default function CartMenu() {
 								/>
 								<div className='flex flex-col flex-grow gap-1'>
 									{' '}
-									<h3 className='font-medium'>{item.model}</h3>
+									<div className='flex justify-between'>
+										<h3 className='font-medium'>{item.model}</h3>
+										<div className='font-medium text-start'>${item.price.toFixed(2)}</div>
+									</div>
 									<div className='flex items-center gap-2'>
 										<Counter
 											quantity={item.quantity}
@@ -51,7 +54,6 @@ export default function CartMenu() {
 										</Button>
 									</div>
 								</div>
-								<div className='font-medium text-right'>${item.price.toFixed(2)}</div>
 							</div>
 						))}
 					</div>

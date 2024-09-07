@@ -1,15 +1,16 @@
 'use client'
+import Spinner from '@/components/Spinner'
 import productById from '@/services/productById'
 import { dehydrate, HydrationBoundary, QueryClient, useQuery } from '@tanstack/react-query'
 import dynamic from 'next/dynamic'
 
 const DetailCard = dynamic(() => import('@/components/products/DetailCard'), {
-	loading: () => <div>Loading...</div>,
+	loading: () => <Spinner />,
 })
 const RelatedProductsContainer = dynamic(
 	() => import('@/components/products/RelatedProductsContainer'),
 	{
-		loading: () => <div>Loading...</div>,
+		loading: () => <Spinner />,
 	},
 )
 
@@ -21,15 +22,13 @@ export default function ProductDetailPage({ params }) {
 		queryKey: ['productDetail', id],
 		queryFn: () => productById(id),
 	})
-	console.log(productData)
+
 	return (
-		<div>
+		<div className=''>
 			<HydrationBoundary state={dehydrate(queryClient)}>
 				<DetailCard />
 			</HydrationBoundary>
-			<h1 className='mt-20 text-3xl antialiased font-bold uppercase md:mt-10 lg:mt-20 ps-10 text-start'>
-				Productos relacionados
-			</h1>
+
 			<HydrationBoundary state={dehydrate(queryClient)}>
 				<RelatedProductsContainer categoryId={productData?.category} />
 			</HydrationBoundary>
