@@ -30,7 +30,7 @@ export default function DetailCard() {
 	}
 
 	if (error) return <div> {error.message} </div>
-	if (isLoading) return
+	if (isLoading) return <Spinner />
 	if (!data || data.length === 0) return <div>No featured products available.</div> //
 	return (
 		<div className='flex flex-col max-w-6xl gap-8 p-4 mx-auto md:flex-row md:p-8 lg:p-20'>
